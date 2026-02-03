@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links de Todos los Videos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: radial-gradient(circle at top right, rgba(30, 58, 138, 0.2), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(124, 58, 237, 0.2), transparent 30%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 60px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Grid de cards */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Estilo de cada card */
+        .video-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: rgba(96, 165, 250, 0.3);
+        }
+
+        .card-header {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 25px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .video-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #f1f5f9;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .link-label i {
+            margin-right: 8px;
+            color: #60a5fa;
+        }
+
+        .video-link {
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #60a5fa;
+            word-break: break-all;
+            font-size: 1rem;
+            color: #93c5fd;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .video-link:hover {
+            background: rgba(15, 23, 42, 0.9);
+            color: #dbeafe;
+        }
+
+        .image-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-label i {
+            margin-right: 8px;
+            color: #a78bfa;
+        }
+
+        .video-image-container {
+            flex-grow: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .placeholder-image {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+        }
+
+        .placeholder-image i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: rgba(96, 165, 250, 0.5);
+        }
+
+        .card-footer {
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.9);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .view-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .view-button i {
+            margin-right: 10px;
+        }
+
+        .view-button:hover {
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            transform: scale(1.03);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .videos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .videos-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto 50px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .card-content {
+                padding: 20px;
+            }
+
+            .video-link {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+        }
+
+        /* Indicador de más videos por venir */
+        .more-videos {
+            text-align: center;
+            margin-top: 30px;
+            color: #94a3b8;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .more-videos i {
+            color: #60a5fa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>LINKS DE TODOS LOS VIDEOS</h1>
+        </header>
+
+        <main>
+            <div class="videos-grid">
+                <!-- Card 1 -->
+                <div class="video-card">
+                    <div class="card-header">
+                        <div class="video-number">1</div>
+                        <h2 class="card-title">VIDEO 1</h2>
+                    </div>
+
+                    <div class="card-content">
+                        <div class="link-label">
+                            <i class="fas fa-link"></i> Enlace del video:
+                        </div>
+                        <a href="https://shrinkme.click/snos038" target="_blank" class="video-link">
+                            https://shrinkme.click/snos038
+                        </a>
+
+                        <div class="image-label">
+                            <i class="fas fa-image"></i> Vista previa:
+                        </div>
+                        <div class="video-image-container">
+                            <img src="img1.png" 
+                                alt="Miniatura del video 1" 
+                                class="video-image">
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="https://shrinkme.click/snos038" target="_blank" class="view-button">
+                            <i class="fas fa-play-circle"></i> Ver Video 1
+                        </a>
+                    </div>
+                </div>
+                <div class="more-videos">
+                    <i class="fas fa-plus-circle"></i>
+                    <p>Más videos se añadirán próximamente...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Interactividad para las cards
+        document.addEventListener('DOMContentLoaded', function () {
+            const videoCards = document.querySelectorAll('.video-card');
+            const videoLinks = document.querySelectorAll('.video-link');
+            const viewButtons = document.querySelectorAll('.view-button');
+
+            // Efecto de confirmación al hacer clic en enlaces
+            videoLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        alert('Este video estará disponible próximamente.');
+                    } else {
+                        if (!confirm('¿Estás seguro de que quieres visitar este enlace?')) {
+                            e.preventDefault();
+                        }
+                    }
+                });
+            });
+
+            // Efecto para botones de "Ver Video"
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') === '#') {
+                        e.preventDefault();
+                        alert('Este video estará disponible próximamente.');
+                    }
+                });
+            });
+
+            // Efecto de carga para imágenes (simulado)
+            const imageContainers = document.querySelectorAll('.video-image-container');
+
+            imageContainers.forEach((container, index) => {
+                // Solo simular carga para la primera card (la que tiene el enlace real)
+                if (index === 0) {
+                    setTimeout(() => {
+                        const placeholder = container.querySelector('.placeholder-image');
+                        if (placeholder) {
+                            placeholder.innerHTML = `
+                                <i class="fas fa-film" style="color:#60a5fa;"></i>
+                                <p>Miniatura del video ${index + 1}</p>
+                                <p style="margin-top:10px; font-size:0.8rem;">(En una implementación real, aquí se cargaría la imagen)</p>
+                            `;
+                        }
+                    }, 1000);
+                }
+            });
+
+            // Resaltar la card del video 1 (el que tiene enlace real)
+            if (videoCards.length > 0) {
+                videoCards[0].style.border = "1px solid rgba(96, 165, 250, 0.5)";
+                videoCards[0].style.boxShadow = "0 10px 25px rgba(59, 130, 246, 0.3)";
+            }
+        });
+    </script>
+</body>
+
+</html>
