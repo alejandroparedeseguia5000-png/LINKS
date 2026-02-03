@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,41 +30,41 @@
 
         header {
             text-align: center;
-            padding: 40px 0 60px;
+            padding: 30px 0 40px;
         }
 
         h1 {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             background: linear-gradient(90deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             letter-spacing: 1px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #cbd5e1;
             max-width: 700px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        /* Grid de cards */
+        /* Grid de cards - ahora 4 por línea */
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(4, 1fr); /* Cambiado de 3 a 4 */
+            gap: 25px; /* Reducido el gap */
+            margin-bottom: 50px;
         }
 
-        /* Estilo de cada card */
+        /* Cards más pequeñas */
         .video-card {
             background: rgba(30, 41, 59, 0.8);
-            border-radius: 16px;
+            border-radius: 14px; /* Reducido */
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Reducido */
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
@@ -74,14 +73,15 @@
         }
 
         .video-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px); /* Reducido */
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35); /* Reducido */
             border-color: rgba(96, 165, 250, 0.3);
         }
 
+        /* Header más pequeño */
         .card-header {
             background: rgba(15, 23, 42, 0.9);
-            padding: 25px 20px;
+            padding: 18px 15px; /* Reducido */
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -90,53 +90,56 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
-            height: 50px;
+            width: 42px; /* Reducido */
+            height: 42px; /* Reducido */
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* Reducido */
             font-weight: bold;
             color: white;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+            margin-bottom: 12px; /* Reducido */
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); /* Reducido */
         }
 
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* Reducido */
             color: #f1f5f9;
         }
 
+        /* Contenido más compacto */
         .card-content {
-            padding: 25px;
+            padding: 20px; /* Reducido */
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .link-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Reducido */
             color: #94a3b8;
-            margin-bottom: 8px;
+            margin-bottom: 6px; /* Reducido */
             display: flex;
             align-items: center;
         }
 
         .link-label i {
-            margin-right: 8px;
+            margin-right: 6px; /* Reducido */
             color: #60a5fa;
+            font-size: 0.9rem; /* Reducido */
         }
 
         .video-link {
             background: rgba(15, 23, 42, 0.7);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-left: 4px solid #60a5fa;
+            border-radius: 8px; /* Reducido */
+            padding: 12px; /* Reducido */
+            margin-bottom: 15px; /* Reducido */
+            border-left: 3px solid #60a5fa; /* Reducido */
             word-break: break-all;
-            font-size: 1rem;
+            font-size: 0.9rem; /* Reducido */
             color: #93c5fd;
             text-decoration: none;
             transition: all 0.2s;
+            line-height: 1.4;
         }
 
         .video-link:hover {
@@ -145,44 +148,52 @@
         }
 
         .image-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Reducido */
             color: #94a3b8;
-            margin-bottom: 15px;
+            margin-bottom: 10px; /* Reducido */
             display: flex;
             align-items: center;
         }
 
         .image-label i {
-            margin-right: 8px;
+            margin-right: 6px; /* Reducido */
             color: #a78bfa;
+            font-size: 0.9rem; /* Reducido */
         }
 
         .video-image-container {
             flex-grow: 1;
-            border-radius: 10px;
+            border-radius: 8px; /* Reducido */
             overflow: hidden;
             background: rgba(15, 23, 42, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 200px;
+            min-height: 150px; /* Reducido */
             border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .video-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .placeholder-image {
             text-align: center;
-            padding: 20px;
+            padding: 15px; /* Reducido */
             color: #64748b;
         }
 
         .placeholder-image i {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem; /* Reducido */
+            margin-bottom: 10px; /* Reducido */
             color: rgba(96, 165, 250, 0.5);
         }
 
+        /* Footer más pequeño */
         .card-footer {
-            padding: 20px;
+            padding: 15px; /* Reducido */
             background: rgba(15, 23, 42, 0.9);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
@@ -194,58 +205,77 @@
             justify-content: center;
             background: linear-gradient(90deg, #3b82f6, #8b5cf6);
             color: white;
-            padding: 12px 25px;
-            border-radius: 10px;
+            padding: 10px 18px; /* Reducido */
+            border-radius: 8px; /* Reducido */
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.9rem; /* Reducido */
             transition: all 0.3s;
             width: 100%;
         }
 
         .view-button i {
-            margin-right: 10px;
+            margin-right: 8px; /* Reducido */
+            font-size: 0.9rem; /* Reducido */
         }
 
         .view-button:hover {
             background: linear-gradient(90deg, #2563eb, #7c3aed);
-            transform: scale(1.03);
+            transform: scale(1.02); /* Reducido */
         }
 
         footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 25px 0; /* Reducido */
             color: #64748b;
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* Reducido */
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 30px;
+            margin-top: 25px; /* Reducido */
         }
 
-        /* Responsive */
+        /* Responsive - ajustado para cards más pequeñas */
         @media (max-width: 1200px) {
             .videos-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr); /* 3 en pantallas medianas */
+                gap: 22px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .videos-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 en tablets */
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.3rem;
             }
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .videos-grid {
                 grid-template-columns: 1fr;
-                max-width: 600px;
-                margin: 0 auto 50px;
+                max-width: 500px; /* Reducido */
+                margin: 0 auto 40px;
+                gap: 18px;
             }
 
             .container {
                 padding: 0 15px;
             }
+            
+            .video-card {
+                max-width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .subtitle {
@@ -253,29 +283,35 @@
             }
 
             .card-content {
-                padding: 20px;
+                padding: 18px;
             }
 
             .video-link {
-                font-size: 0.9rem;
-                padding: 12px;
+                font-size: 0.85rem;
+                padding: 10px;
+            }
+            
+            .video-image-container {
+                min-height: 130px;
             }
         }
 
         /* Indicador de más videos por venir */
         .more-videos {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 25px; /* Reducido */
             color: #94a3b8;
             font-style: italic;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 8px; /* Reducido */
+            font-size: 0.95rem; /* Reducido */
         }
 
         .more-videos i {
             color: #60a5fa;
+            font-size: 1rem; /* Reducido */
         }
     </style>
 </head>
@@ -319,12 +355,17 @@
                         </a>
                     </div>
                 </div>
-                <div class="more-videos">
-                    <i class="fas fa-plus-circle"></i>
-                    <p>Más videos se añadirán próximamente...</p>
-                </div>
+            </div>
+            
+            <div class="more-videos">
+                <i class="fas fa-plus-circle"></i>
+                <p>Más videos se añadirán próximamente...</p>
             </div>
         </main>
+        
+        <footer>
+            <p>© 2023 - Página de enlaces de videos | Todos los derechos reservados</p>
+        </footer>
     </div>
 
     <script>
@@ -358,32 +399,12 @@
                 });
             });
 
-            // Efecto de carga para imágenes (simulado)
-            const imageContainers = document.querySelectorAll('.video-image-container');
-
-            imageContainers.forEach((container, index) => {
-                // Solo simular carga para la primera card (la que tiene el enlace real)
-                if (index === 0) {
-                    setTimeout(() => {
-                        const placeholder = container.querySelector('.placeholder-image');
-                        if (placeholder) {
-                            placeholder.innerHTML = `
-                                <i class="fas fa-film" style="color:#60a5fa;"></i>
-                                <p>Miniatura del video ${index + 1}</p>
-                                <p style="margin-top:10px; font-size:0.8rem;">(En una implementación real, aquí se cargaría la imagen)</p>
-                            `;
-                        }
-                    }, 1000);
-                }
-            });
-
             // Resaltar la card del video 1 (el que tiene enlace real)
             if (videoCards.length > 0) {
                 videoCards[0].style.border = "1px solid rgba(96, 165, 250, 0.5)";
-                videoCards[0].style.boxShadow = "0 10px 25px rgba(59, 130, 246, 0.3)";
+                videoCards[0].style.boxShadow = "0 8px 20px rgba(59, 130, 246, 0.3)";
             }
         });
     </script>
 </body>
-
 </html>
